@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>DigitalOcean Product Showcase + Inference Demo</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>DigitalOcean Products</h1>
+    <p>Everything on the platform — plus a live demo of Serverless Inference, one endpoint, two modalities.</p>
+    <p id="endpoint-badge">Loading endpoint info…</p>
+  </header>
+
+  <main>
+    <section id="catalog">
+      <div id="categories"></div>
+    </section>
+
+    <section id="ai-demo">
+      <h2>Try Serverless Inference</h2>
+      <p class="hint">Click "Ask AI" or "Generate Icon" on any product above to load a prompt here, or just type your own.</p>
+      <div id="panels">
+        <div class="panel">
+          <h3>💬 Text — <code>/v1/chat/completions</code></h3>
+          <textarea id="chat-prompt" rows="3" placeholder="Ask about any DO product…">What is DigitalOcean App Platform and when should I use it?</textarea>
+          <button id="chat-btn">Send</button>
+          <div class="output" id="chat-output">Response will appear here.</div>
+          <div class="meta" id="chat-meta"></div>
+        </div>
+
+        <div class="panel">
+          <h3>🖼️ Image — <code>/v1/images/generations</code></h3>
+          <textarea id="image-prompt" rows="3" placeholder="Describe an icon or scene…">A clean, modern flat icon representing cloud servers, ocean-blue color palette, minimalist</textarea>
+          <select id="image-size">
+            <option value="1024x1024">1024x1024</option>
+            <option value="512x512">512x512</option>
+            <option value="256x256">256x256</option>
+          </select>
+          <button id="image-btn">Generate</button>
+          <div class="output" id="image-output">Image will appear here.</div>
+          <div class="meta" id="image-meta"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Product catalog is static reference content from
+    <a href="https://docs.digitalocean.com/products/" target="_blank" rel="noopener">docs.digitalocean.com/products</a>.
+    Both AI panels above call the same <code>MODEL_ACCESS_KEY</code> and <code>base_url</code> — only the model and endpoint path differ.
+  </footer>
+
+  <script src="/products-render.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
